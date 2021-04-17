@@ -2,10 +2,10 @@
 
 namespace ignateva;
 
-use core\LogAbstract;
-use core\LogInterface;
-include 'core\LogAbstract.php';
-include 'core\LogInterface.php';
+use core\core\LogAbstract;
+use core\core\LogInterface;
+include 'core\core\LogAbstract.php';
+include 'core\core\LogInterface.php';
 
 class MyLog extends LogAbstract implements LogInterface
 {
@@ -14,6 +14,15 @@ class MyLog extends LogAbstract implements LogInterface
         foreach ($this->log as $mass) {
             echo $mass;
         }
+
+        $d = new \DateTime();
+        $date = $d->format('d.m.Y_H.i.s.ms');
+        $logFile = "log/$date.log";
+
+        if (!file_exists("log")) {
+            mkdir("log");
+        }
+        file_put_contents($logFile, implode("\n", $this->log));
     }
 
     public static function log($str)

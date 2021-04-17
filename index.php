@@ -4,6 +4,7 @@ use ignateva\{Square, MyLog};
 include 'ignateva/Square.php';
 include 'ignateva/MyLog.php';
 try {
+MyLog::log("Program version " . trim(file_get_contents("version")));
 $a = readline();
 $b = readline();
 $c = readline();

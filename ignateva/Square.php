@@ -3,9 +3,9 @@
 namespace ignateva;
 
 include 'ignateva\Line.php';
-include 'core\EquationInterface.php';
+include 'core\core\EquationInterface.php';
 
-use core\EquationInterface;
+use core\core\EquationInterface;
 
 class Square extends Line implements EquationInterface
 {
