@@ -4,14 +4,15 @@ namespace ignateva;
 
 use core\LogAbstract;
 use core\LogInterface;
+include 'core\LogAbstract.php';
+include 'core\LogInterface.php';
 
 class MyLog extends LogAbstract implements LogInterface
 {
-
     public function _write()
     {
         foreach ($this->log as $mass) {
-            echo $mass . PHP_EOL;
+            echo $mass;
         }
     }
 

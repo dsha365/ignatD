@@ -7,7 +7,6 @@ include 'core\EquationInterface.php';
 
 use core\EquationInterface;
 
-
 class Square extends Line implements EquationInterface
 {
     public function solve($a, $b, $c)
@@ -16,16 +15,19 @@ class Square extends Line implements EquationInterface
             return parent::line($b, $c);
         }
         $D = $this->searchD($a, $b, $c);
+        MyLog::log("This is quadratic equation\n");
+        MyLog::log('Roots: ');
         if ($D > 0) {
-            $X1 = ((-$b) + sqrt($D)) / (2 * $a);
-            $X2 = ((-$b) - sqrt($D)) / (2 * $a);
-            return array($X1, $X2);
+            MyLog::log((-$b) + sqrt($D)) / (2 * $a);
+            MyLog::log((-$b) - sqrt($D)) / (2 * $a);
         }
         if ($D == 0) {
-            $X1 = -($b / (2 * $a));
-            return array($X1);
+            MyLog::log(-($b / (2 * $a)));
+
         }
-        return null;
+        if ($D < 0 ){
+            throw new ignatevaExeption('The equation does not have solution');
+        }
     }
 
     protected function searchD($a, $b, $c)
