@@ -1,8 +1,8 @@
 <?php
 use ignateva\{Square, MyLog};
 
-include 'ignateva/Square.php';
-include 'ignateva/MyLog.php';
+require "vendor/autoload.php";
+
 try {
 MyLog::log("Program version " . trim(file_get_contents("version")));
 $a = readline();
