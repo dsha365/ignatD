@@ -1,16 +1,16 @@
 <?php
 
-use ignateva\A;
-use ignateva\B;
+use ignateva\Square;
 
-include 'ignateva/A.php';
-include 'ignateva/B.php';
+include 'ignateva/Square.php';
 
-$obj = new A ();
-$obj2 = new B ();
-$res = $obj2->roots(1, 5, 0);
+$sqr = new Square();
+$res = $sqr->solve(1, 4, 4);
 
-echo($obj->func(6, 3) . PHP_EOL);
-foreach ($res as $el) {
-    echo $el;
+if ($res == null) {
+    echo "The equation does not have roots";
+} else {
+    foreach ($res as $el) {
+        echo $el;
+    }
 }
